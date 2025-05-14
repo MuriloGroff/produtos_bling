@@ -37,31 +37,5 @@ A função realiza a busca de produtos com suporte à paginação. Para cada pro
 ```python
 response = requests.get(f"https://api.bling.com.br/v3/produtos?pagina={pular_pagina}&limite=100", headers=headers)
 
-3️⃣ Armazenamento no Banco de Dados
-Os dados são armazenados na tabela produtos_2 com controle de duplicidade.
-
-INSERT INTO produtos_2 (id, nome, codigo, preco, precoCusto, saldoVirtualTotal, pesoLiquido, estoqueMinimo, altura, largura, profundidade, fornecedorNome, tipoEstoque, produto_id, quantidade)
-VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-ON DUPLICATE KEY UPDATE ...
-
-4️⃣ Histórico de Preços
-O código verifica alterações nos preços dos produtos e registra as mudanças em uma tabela de histórico.
-INSERT INTO historico_precos (produto_sku, data_alteracao, preco)
-VALUES (%s, %s, %s)
-
-📌 Como Executar
-Configurar o Banco de Dados
-- Crie as tabelas produtos_2 e historico_precos no MySQL.
-- Certifique-se de que as colunas estão configuradas corretamente.
-Configurar Tokens de Acesso
-- Salve os tokens de acesso e renovação no arquivo tokens.json.
-Executar o Script
-- Certifique-se de que todas as dependências estão instaladas.
-- Execute o script Python.
-Verificar os Resultados
-- Os dados serão armazenados na tabela produtos_2.
-- O histórico de preços será atualizado automaticamente.
-
-
-
+´´´
 
